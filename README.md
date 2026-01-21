@@ -42,7 +42,7 @@ FastAPI
 
 SQLAlchemy
 
-PostgreSQL
+SQLite
 
 JWT (JSON Web Token) para autenticação
 
