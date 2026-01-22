@@ -1,8 +1,8 @@
-"""Initial Migration
+"""Migracao inicial
 
-Revision ID: 2d35b26f0b6b
+Revision ID: 7bb0de8fed30
 Revises: 
-Create Date: 2026-01-21 14:41:37.868385
+Create Date: 2026-01-22 07:08:41.927807
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = '2d35b26f0b6b'
+revision: str = '7bb0de8fed30'
 down_revision: Union[str, Sequence[str], None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -36,11 +36,11 @@ def upgrade() -> None:
     )
     op.create_table('posts',
     sa.Column('id_post', sa.Integer(), autoincrement=True, nullable=False),
-    sa.Column('id_user', sa.Integer(), nullable=False),
-    sa.Column('texto', sa.String(), nullable=False),
-    sa.Column('foto', sa.Boolean(), nullable=True),
+    sa.Column('id_usuario', sa.Integer(), nullable=False),
+    sa.Column('texto', sa.String(), nullable=True),
+    sa.Column('foto', sa.String(), nullable=True),
     sa.Column('likes', sa.Integer(), nullable=True),
-    sa.ForeignKeyConstraint(['id_user'], ['usuarios.id'], ),
+    sa.ForeignKeyConstraint(['id_usuario'], ['usuarios.id'], ),
     sa.PrimaryKeyConstraint('id_post')
     )
     # ### end Alembic commands ###

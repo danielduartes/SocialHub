@@ -35,12 +35,14 @@ class Post(Base):
     __tablename__ = "posts"
 
     id_post = Column("id_post", Integer, primary_key=True, autoincrement=True, nullable=False)
-    id_usuario = Column("id_user", Integer, ForeignKey("usuarios.id"), nullable=False)
-    texto = Column("texto", String, nullable=False)
-    foto = Column("foto", Boolean, default=False)
+    id_usuario = Column("id_usuario", Integer, ForeignKey("usuarios.id"), nullable=False)
+    texto = Column("texto", String, nullable=True)
+    foto = Column("foto", String, nullable=True, default=False)
     likes = Column("likes", Integer, default=0)
 
-    def __init__(self, texto):
+    def __init__(self, id_usuario, texto, foto):
+        self.id_usuario = id_usuario
         self.texto = texto
+        self.foto = foto
 
 # executa a criação dos metadados do seu banco (cria efetivamente o banco de dados)

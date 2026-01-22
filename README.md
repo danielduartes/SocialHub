@@ -34,6 +34,7 @@ Seguir usuários
 Deixar de seguir usuários
 
 🧱 Tecnologias Utilizadas
+
 🔹 Backend
 
 Python
